@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Westcity sync healthcheck every 10 minutes
+
+[Timer]
+OnCalendar=*:0/10
+Persistent=true
+Unit=westcity-healthcheck.service
+
+[Install]
+WantedBy=timers.target

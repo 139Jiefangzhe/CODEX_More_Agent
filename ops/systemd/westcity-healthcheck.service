@@ -1,0 +1,13 @@
+[Unit]
+Description=Westcity sync healthcheck
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/parking-westcity-sync
+EnvironmentFile=/opt/parking-westcity-sync/.env
+ExecStart=/opt/parking-westcity-sync/.venv/bin/python -m westcity_sync.maintenance healthcheck --allow-redis-down
+StandardOutput=journal
+StandardError=journal
+

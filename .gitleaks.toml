@@ -1,0 +1,7 @@
+title = "parking-westcity-sync"
+
+[allowlist]
+description = "Ignore the local deployment .env file; repository scans should cover committed artifacts, not runtime secret stores."
+paths = [
+  '''^\.env$''',
+]

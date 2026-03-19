@@ -1,0 +1,16 @@
+{
+  "name": "parking-westcity-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "西城区停车数据最小接入适配层",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --test && node --check src/*.js tests/*.js",
+    "send:static": "node src/cli.js static",
+    "send:operations": "node src/cli.js operations"
+  }
+}

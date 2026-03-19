@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+python_tests/__pycache__/
+westcity_sync/__pycache__/
+*.pyc
+artifacts/
+dist/
+build/
+*.egg-info/

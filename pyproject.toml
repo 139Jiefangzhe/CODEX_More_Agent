@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "parking-westcity-sync"
+version = "0.1.0"
+description = "Westcity parking sync and logical pool tooling"
+requires-python = ">=3.11"
+dependencies = [
+  "cryptography==46.0.5",
+  "PyMySQL==1.1.1",
+  "redis==5.2.1",
+]
+
+[project.scripts]
+westcity-db-push = "westcity_sync.westcity_db_push:main"
+westcity-pool-sync = "westcity_sync.westcity_pool_sync:main"
+westcity-operations-simulator = "westcity_sync.westcity_operations_simulator:main"
+westcity-migrate = "westcity_sync.migrate:main"
+westcity-maintenance = "westcity_sync.maintenance:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["westcity_sync*"]

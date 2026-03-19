@@ -1,0 +1,13 @@
+[Unit]
+Description=Westcity logical pool sync worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/parking-westcity-sync
+EnvironmentFile=/opt/parking-westcity-sync/.env
+ExecStart=/opt/parking-westcity-sync/.venv/bin/python -m westcity_sync.westcity_pool_sync --allow-redis-down
+StandardOutput=journal
+StandardError=journal
+
