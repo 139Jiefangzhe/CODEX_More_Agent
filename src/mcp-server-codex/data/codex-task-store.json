@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "task_id": "6f28c868-ff88-43c8-b2d1-de8de558f329",
+      "status": "failed",
+      "prompt_summary": "You are running as a specialized agent in dashboard single-agent mode. Agent type: devops Project path: /tmp/claude-a...",
+      "created_at": "2026-03-30T05:45:10.360Z",
+      "full_prompt": "You are running as a specialized agent in dashboard single-agent mode.\nAgent type: devops\nProject path: /tmp/claude-arch-reg-m1HpWd/workspace\nLanguage: typescript\nFramework: none\n\nTask:\n生成一段说明文本\n\nConstraints:\n- This mode is review-only. Do not assume changes will be applied immediately.\n- If you suggest file changes, include them in files as proposals.\n- Keep final guidance concise and actionable in logs.\n\nContext files:\n- No context files available",
+      "files_context": [],
+      "constraints": {
+        "language": "typescript",
+        "framework": "none"
+      },
+      "expected_output": {
+        "files": [
+          "__unspecified_output__.txt"
+        ],
+        "include_tests": false
+      },
+      "config": {
+        "timeout_seconds": 600,
+        "max_tokens": 8000
+      },
+      "error": "Connection error.",
+      "completed_at": "2026-03-30T05:45:13.453Z"
+    },
+    {
+      "task_id": "a67b4efc-f23b-4641-ad3b-a2edd80e309d",
+      "status": "failed",
+      "prompt_summary": "You are running as a specialized agent in dashboard single-agent mode. Agent type: devops Project path: /tmp/claude-a...",
+      "created_at": "2026-03-30T05:47:28.732Z",
+      "full_prompt": "You are running as a specialized agent in dashboard single-agent mode.\nAgent type: devops\nProject path: /tmp/claude-arch-reg-iAwivu/workspace\nLanguage: typescript\nFramework: none\n\nTask:\n生成一段说明文本\n\nConstraints:\n- This mode is review-only. Do not assume changes will be applied immediately.\n- If you suggest file changes, include them in files as proposals.\n- Keep final guidance concise and actionable in logs.\n\nContext files:\n- No context files available",
+      "files_context": [],
+      "constraints": {
+        "language": "typescript",
+        "framework": "none"
+      },
+      "expected_output": {
+        "files": [
+          "__unspecified_output__.txt"
+        ],
+        "include_tests": false
+      },
+      "config": {
+        "timeout_seconds": 600,
+        "max_tokens": 8000
+      },
+      "error": "Connection error.",
+      "completed_at": "2026-03-30T05:47:31.506Z"
+    }
+  ]
+}

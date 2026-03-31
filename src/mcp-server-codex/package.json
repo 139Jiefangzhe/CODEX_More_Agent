@@ -1,0 +1,24 @@
+{
+  "name": "mcp-server-codex",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP Server - 将 OpenAI Codex 封装为 gpt-5.4 总控层的代码执行工具",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.28.0",
+    "openai": "^6.33.0",
+    "uuid": "^10.x",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.x",
+    "tsx": "^4.x",
+    "@types/node": "^22.x",
+    "@types/uuid": "^10.x"
+  }
+}

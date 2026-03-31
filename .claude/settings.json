@@ -1,0 +1,116 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-github"],
+      "env": { "GITHUB_TOKEN": "${GITHUB_TOKEN}" }
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-postgres", "${DATABASE_URL}"]
+    },
+    "sqlite": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-sqlite", "--db-path", "./data/app.db"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-filesystem", "."]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-fetch"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-playwright"]
+    },
+    "docker": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-docker"]
+    },
+    "kubernetes": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-kubernetes"]
+    },
+    "aws": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-aws"],
+      "env": { "AWS_PROFILE": "${AWS_PROFILE}" }
+    },
+    "cloudflare": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-cloudflare"],
+      "env": { "CLOUDFLARE_API_TOKEN": "${CLOUDFLARE_API_TOKEN}" }
+    },
+    "slack": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-slack"],
+      "env": { "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}" }
+    },
+    "linear": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-linear"],
+      "env": { "LINEAR_API_KEY": "${LINEAR_API_KEY}" }
+    },
+    "notion": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-notion"],
+      "env": { "NOTION_API_KEY": "${NOTION_API_KEY}" }
+    },
+    "sentry": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-sentry"],
+      "env": { "SENTRY_AUTH_TOKEN": "${SENTRY_AUTH_TOKEN}" }
+    },
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-figma"],
+      "env": { "FIGMA_ACCESS_TOKEN": "${FIGMA_ACCESS_TOKEN}" }
+    },
+    "codex": {
+      "command": "node",
+      "args": ["src/mcp-server-codex/dist/index.js"],
+      "env": {
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+        "CODEX_MODEL": "gpt-5.3-codex",
+        "CODEX_TIMEOUT": "300"
+      }
+    }
+  },
+  "hooks": {
+    "postEdit": [
+      {
+        "match": "\\.(ts|tsx|js|jsx)$",
+        "command": "npx eslint --fix ${file}"
+      },
+      {
+        "match": "\\.(py)$",
+        "command": "ruff check --fix ${file}"
+      },
+      {
+        "match": ".*",
+        "command": ".claude/scripts/dashboard/event-emitter.sh edit ${file}"
+      }
+    ],
+    "preCommit": [
+      {
+        "command": "npx secretlint '**/*'"
+      },
+      {
+        "command": "npm audit --audit-level=high"
+      },
+      {
+        "command": ".claude/scripts/dashboard/event-emitter.sh commit"
+      }
+    ],
+    "prePush": [
+      {
+        "command": "npm test -- --run"
+      },
+      {
+        "command": ".claude/scripts/dashboard/event-emitter.sh push"
+      }
+    ]
+  }
+}

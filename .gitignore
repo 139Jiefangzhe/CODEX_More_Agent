@@ -1,0 +1,34 @@
+# Secrets and credentials
+ssh_keys/
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+*_ed25519
+*_ed25519.pub
+*id_rsa*
+
+# Databases and local state
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Backups and archives
+*.tar.gz
+*.tgz
+*.zip
+
+# Dependencies and build artifacts
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Logs and temporary outputs
+*.log
+FULL_TREE.txt
+
+# Machine-local settings
+**/settings.local.json
